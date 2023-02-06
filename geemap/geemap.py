@@ -1634,16 +1634,16 @@ class Map(ipyleaflet.Map):
             basemap (str, optional): Can be one of string from ee_basemaps. Defaults to 'HYBRID'.
         """
         try:
-            if (
-                basemap in basemap_tiles.keys()
-                and basemap_tiles[basemap] not in self.layers
-            ):
-                self.add_layer(basemap_tiles[basemap])
+            if basemap in basemaps.keys() and basemaps[basemap] not in self.layers:
+                self.add_layer(basemaps[basemap])
+
+                if is_arcpy():
+                    arc_add_layer(basemaps[basemap].url, basemap)
 
         except Exception:
             raise ValueError(
                 "Basemap can only be one of the following:\n  {}".format(
-                    "\n  ".join(basemap_tiles.keys())
+                    "\n  ".join(basemaps.keys())
                 )
             )
 
