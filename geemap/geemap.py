@@ -1637,8 +1637,8 @@ class Map(ipyleaflet.Map):
             if basemap in basemaps.keys() and basemaps[basemap] not in self.layers:
                 self.add_layer(basemaps[basemap])
 
-                if is_arcpy():
-                    arc_add_layer(basemaps[basemap].url, basemap)
+                #if is_arcpy():
+                    #arc_add_layer(basemaps[basemap].url, basemap)
 
         except Exception:
             raise ValueError(
