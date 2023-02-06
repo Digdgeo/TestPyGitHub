@@ -6,19 +6,36 @@ ipyleaflet functions use snake case, such as add_tile_layer(), add_wms_layer(), 
 import math
 import os
 import time
+import pkg_resources
+
 
 import ee
 import ipyevents
 import ipyleaflet
 import ipywidgets as widgets
+from box import Box
 from bqplot import pyplot as plt
 from ipyfilechooser import FileChooser
 from IPython.display import display
 
-from .basemaps import basemap_tiles, basemaps
+#from .basemaps import basemap_tiles, basemaps
+#from .common import *
+#from .conversion import *
+#from .legends import builtin_legends
+
+from ipytree import Node, Tree
+from .basemaps import xyz_to_leaflet
 from .common import *
 from .conversion import *
 from .legends import builtin_legends
+from .timelapse import *
+from .osm import *
+from .plot import *
+
+#from . import examples
+
+
+basemaps = Box(xyz_to_leaflet(), frozen_box=True)
 
 print('Ndvi2Gif flavour')
 
