@@ -487,7 +487,7 @@ class Map(ipyleaflet.Map):
             self.add_control(measure)
 
         if kwargs.get("add_google_map"):
-            self.add_layer(basemap_tiles["ROADMAP"])
+            self.add_layer(basemaps["ROADMAP"])
 
         if kwargs.get("attribution_ctrl"):
             self.add_control(ipyleaflet.AttributionControl(position="bottomright"))
